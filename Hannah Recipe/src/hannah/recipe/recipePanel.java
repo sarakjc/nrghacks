@@ -15,7 +15,9 @@ public class recipePanel extends JPanel{
     
     @Override
     public void paintComponent(Graphics g) {
-        
+        // sets background colour
+        g.setColor(Const.BG);
+        g.fillRect(0, 0, Const.panelWIDTH, Const.panelHEIGHT);
         
     }
 }
