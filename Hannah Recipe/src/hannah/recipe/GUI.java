@@ -9,7 +9,10 @@ package hannah.recipe;
  * @author sarak
  */
 public class GUI extends javax.swing.JFrame {
-
+    
+    public static final int HEIGHT = 1500;
+    public static final int WIDTH = 2000;
+    
     /**
      * Creates new form GUI
      */
@@ -27,16 +30,20 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("recipeBook");
+        setPreferredSize(new java.awt.Dimension(WIDTH, HEIGHT));
+        setResizable(false);
+        setSize(new java.awt.Dimension(WIDTH, HEIGHT));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 500, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 375, Short.MAX_VALUE)
         );
 
         pack();
