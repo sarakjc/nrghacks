@@ -3,6 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package hannah.recipe;
+import static hannah.recipe.Const.*;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -12,6 +18,7 @@ import javax.swing.*;
 public class GUI extends javax.swing.JFrame {
     
     private DefaultListModel recipeModel;
+    public static Font FONT;
     
     /**
      * Creates new form GUI
@@ -23,6 +30,11 @@ public class GUI extends javax.swing.JFrame {
         recipeModel = (DefaultListModel)recipeList.getModel();
         updateRecipes();
         
+        try {
+            FONT = Font.createFont(Font.TRUETYPE_FONT, Const.fontfile);
+        } catch (FontFormatException | IOException ex) {
+            FONT = new Font("Arial", Font.PLAIN, 1);
+        }
 
     }
 
@@ -47,7 +59,7 @@ public class GUI extends javax.swing.JFrame {
 
         recipePanel1.setPreferredSize(new java.awt.Dimension(1000, 600));
 
-        recipeList.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        recipeList.setFont(FONT);
         recipeList.setModel(new DefaultListModel());
         recipeList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         recipeList.setToolTipText("");
@@ -85,6 +97,7 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
     private void recipeListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_recipeListValueChanged
         // something in list changed, sets selected to index of selection 
@@ -127,7 +140,7 @@ public class GUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
