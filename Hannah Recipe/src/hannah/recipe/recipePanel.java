@@ -17,6 +17,7 @@ public class recipePanel extends JPanel{
     static ArrayList<String> titles;
     static ArrayList<String> ingredients;
     static ArrayList<String> steps;
+    
     public recipePanel(){
     ArrayList array = readFile();
     titles = (ArrayList) array.get(0);
