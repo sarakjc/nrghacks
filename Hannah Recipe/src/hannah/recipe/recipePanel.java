@@ -14,18 +14,18 @@ import javax.swing.*;
  * @author sarak
  */
 public class recipePanel extends JPanel{
-    static ArrayList<String> titles;
-    static ArrayList<String> ingredients;
-    static ArrayList<String> steps;
+    public static ArrayList<String> titles;
+    public static ArrayList<String> ingredients;
+    public static ArrayList<String> steps;
     
     public recipePanel(){
-    ArrayList array = readFile();
-    titles = (ArrayList) array.get(0);
-    ingredients = (ArrayList) array.get(1);
-    steps = (ArrayList) array.get(2);
-}
+        super();
+        ArrayList array = readFile();
+        
+    }
     @Override
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         // sets background colour
         g.setColor(Const.BG);
         g.fillRect(0, 0, Const.panelWIDTH, Const.panelHEIGHT);
