@@ -21,6 +21,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         
         recipeModel = (DefaultListModel)recipeList.getModel();
+        updateRecipes();
     }
 
     /**
@@ -102,7 +103,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void updateRecipes() {
         recipeModel.clear();
-        
+        recipeModel.addAll(rPanel.titles);
     }
     
     /**
