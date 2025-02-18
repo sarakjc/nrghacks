@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package hannah.recipe;
+import javax.swing.*;
 
 /**
  *
@@ -10,11 +11,16 @@ package hannah.recipe;
  */
 public class GUI extends javax.swing.JFrame {
     
+    private DefaultListModel recipeModel;
+    
     /**
      * Creates new form GUI
      */
     public GUI() {
+        this.recipeModel = new DefaultListModel();
         initComponents();
+        
+        recipeModel = (DefaultListModel)recipeList.getModel();
     }
 
     /**
@@ -28,7 +34,7 @@ public class GUI extends javax.swing.JFrame {
 
         recipescrollPane = new javax.swing.JScrollPane();
         recipeList = new javax.swing.JList<>();
-        recipePanel1 = new hannah.recipe.recipePanel();
+        rPanel = new hannah.recipe.recipePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("recipeBook");
@@ -36,13 +42,8 @@ public class GUI extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(Const.WIDTH, Const.HEIGHT));
 
-        recipeList.setBorder(null);
         recipeList.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        recipeList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        recipeList.setModel(new DefaultListModel());
         recipeList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         recipeList.setToolTipText("");
         recipeList.setAutoscrolls(false);
@@ -54,17 +55,17 @@ public class GUI extends javax.swing.JFrame {
         });
         recipescrollPane.setViewportView(recipeList);
 
-        recipePanel1.setBackground(new java.awt.Color(204, 255, 204));
-        recipePanel1.setPreferredSize(new java.awt.Dimension(Const.panelWIDTH, Const.panelHEIGHT));
+        rPanel.setBackground(new java.awt.Color(204, 255, 204));
+        rPanel.setPreferredSize(new java.awt.Dimension(Const.panelWIDTH, Const.panelHEIGHT));
 
-        javax.swing.GroupLayout recipePanel1Layout = new javax.swing.GroupLayout(recipePanel1);
-        recipePanel1.setLayout(recipePanel1Layout);
-        recipePanel1Layout.setHorizontalGroup(
-            recipePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout rPanelLayout = new javax.swing.GroupLayout(rPanel);
+        rPanel.setLayout(rPanelLayout);
+        rPanelLayout.setHorizontalGroup(
+            rPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1000, Short.MAX_VALUE)
         );
-        recipePanel1Layout.setVerticalGroup(
-            recipePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        rPanelLayout.setVerticalGroup(
+            rPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -76,7 +77,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(recipescrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(recipePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
@@ -85,7 +86,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(recipescrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-                    .addComponent(recipePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
+                    .addComponent(rPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
 
@@ -99,6 +100,11 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_recipeListValueChanged
 
+    private void updateRecipes() {
+        recipeModel.clear();
+        recipeModel.addAll();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -135,8 +141,8 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private hannah.recipe.recipePanel rPanel;
     private javax.swing.JList<String> recipeList;
-    private hannah.recipe.recipePanel recipePanel1;
     private javax.swing.JScrollPane recipescrollPane;
     // End of variables declaration//GEN-END:variables
 }
