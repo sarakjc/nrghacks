@@ -10,8 +10,8 @@ package hannah.recipe;
  */
 public class GUI extends javax.swing.JFrame {
     
-    public static final int HEIGHT = 1500;
-    public static final int WIDTH = 2000;
+    public static final int HEIGHT = 650;
+    public static final int WIDTH = 1250;
     
     /**
      * Creates new form GUI
@@ -29,25 +29,76 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        recipeList = new javax.swing.JList<>();
+        recipePanel1 = new hannah.recipe.recipePanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("recipeBook");
         setPreferredSize(new java.awt.Dimension(WIDTH, HEIGHT));
         setResizable(false);
         setSize(new java.awt.Dimension(WIDTH, HEIGHT));
 
+        recipeList.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        recipeList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        recipeList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        recipeList.setToolTipText("");
+        recipeList.setPreferredSize(new java.awt.Dimension(100, 600));
+        recipeList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                recipeListValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(recipeList);
+
+        recipePanel1.setBackground(new java.awt.Color(204, 255, 204));
+        recipePanel1.setPreferredSize(new java.awt.Dimension(1000, 600));
+
+        javax.swing.GroupLayout recipePanel1Layout = new javax.swing.GroupLayout(recipePanel1);
+        recipePanel1.setLayout(recipePanel1Layout);
+        recipePanel1Layout.setHorizontalGroup(
+            recipePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1000, Short.MAX_VALUE)
+        );
+        recipePanel1Layout.setVerticalGroup(
+            recipePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(recipePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 375, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(recipePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void recipeListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_recipeListValueChanged
+        // something in list changed, sets selected to index of selection 
+        if (recipeList.hasFocus() && ! evt.getValueIsAdjusting()) {
+            int selected = recipeList.getSelectedIndex();
+        }
+    }//GEN-LAST:event_recipeListValueChanged
 
     /**
      * @param args the command line arguments
@@ -85,5 +136,8 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> recipeList;
+    private hannah.recipe.recipePanel recipePanel1;
     // End of variables declaration//GEN-END:variables
 }
