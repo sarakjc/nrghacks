@@ -102,7 +102,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void updateRecipes() {
         recipeModel.clear();
-        recipeModel.addAll();
+        
     }
     
     /**
