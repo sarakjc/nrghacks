@@ -20,7 +20,8 @@ public class HannahRecipe {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    
+     public static void main(String[] args) {
         // TODO code application logic here
         writeFile("Title:\nTomato and Egg\nIngredients:\n5 tomatoes\n2 eggs\nSteps:\nmix eggs\ncook eggs\ncut tomatoes\nadd tomatoes");
         ArrayList array = readFile();
@@ -33,12 +34,12 @@ public class HannahRecipe {
             }
         }
     }
-
+   
     public static ArrayList readFile() {
         File f = new File("myRecipeBook.txt");
         try {
             Scanner s = new Scanner(f);
-            ArrayList threeD = new ArrayList();
+            ArrayList<ArrayList<String>> threeD = new ArrayList();
             ArrayList<String> titles = new ArrayList(0);
             ArrayList<String> ingredients = new ArrayList(0);
             ArrayList<String> steps = new ArrayList(0);

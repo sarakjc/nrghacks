@@ -20,7 +20,10 @@ public class recipePanel extends JPanel{
     
     public recipePanel(){
         super();
-        ArrayList array = readFile();
+        ArrayList<ArrayList<String>> array = HannahRecipe.readFile();
+        titles = array.get(0);
+        ingredients = array.get(1);
+        steps = array.get(2);
         
     }
     @Override
